@@ -8,27 +8,47 @@ Manual tests:
 [1, 0, 2, 3, 3, 9, 1, 4, 9] ==> [1, 2, 3, 3, 9, 9]
 */
 
-var inputList = [2, 6, 2, 9, 8, 39, 23];
+// var inputList = [2, 6, 2, 9, 8, 39, 23];
+var inputList = [38, 2, 84, 12, 192, 92];
+// var inputList = [1, 0, 2, 3, 3, 9, 1, 4, 9];
 console.log("Unsorted list: ", inputList);
 
 function stalinSort(unsortedList) {
-  var sortedList = [];
+  var sortedList = unsortedList;
   console.log("******** sorting ********");
 
   /*
-  Agarrar desde 1 hasta n en contador i.
-  Agarrar i + i en contador j.
-  Recorrer la lista completa mientras que:
-    Si j es menor que i, se elimina j.
-    Else, nada.
+  j = i + 1.
+  Go trough array:
+    j < i, remove j.
+    Else, nothing.
   */
 
-  for (i = 0; i < unsortedList.length; i++) {
-    console.log("i: ", i);
-    console.log("j: ", i + 1);
+  for (i = 0; i < sortedList.length; i++) {
+    // console.log("i: ", sortedList[i]);
+    // console.log("j: ", sortedList[i + 1]);
+    j = i + 1;
+
+    if (sortedList[i] == "x") {
+      if (sortedList[j] < sortedList[i - 1]) {
+        // sortedList.splice[j];
+        sortedList[j] = "x";
+      }
+    } else {
+      if (sortedList[j] < sortedList[i]) {
+        // sortedList.splice[j];
+        sortedList[j] = "x";
+      }
+    }
+
   }
 
-  return sortedList;
+  var result = sortedList.filter(function(number) {
+    return number != 'x';
+  });
+
+  // console.log(sortedList);
+  return result;
 }
 
 console.log("Sorted list: ", stalinSort(inputList));
